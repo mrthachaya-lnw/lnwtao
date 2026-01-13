@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="เทพเต๋า - พอร์ตโฟลิโอส่วนตัวสไตล์ไซไฟสุดล้ำสมัย">
+    <meta name="keywords" content="เทพเต๋า, portfolio, sci-fi, futuristic">
+    <title>เทพเต๋า | Coming</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+
+<body>
+    <!-- Loading Screen -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-content">
+            <div class="glitch-wrapper">
+                <h1 class="preloader-title glitch" data-text="เทพเต๋า">เทพเต๋า</h1>
+            </div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Animated Background -->
+    <div class="cyber-grid"></div>
+    <canvas id="particles"></canvas>
+
+    <!-- Navigation -->
+    <nav class="nav-bar">
+        <div class="nav-content">
+            <div class="logo-container">
+                <span class="logo-text">เทพเต๋า</span>
+                <div class="logo-glow"></div>
+            </div>
+            <div class="nav-links">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-content">
+            <div class="glitch-wrapper">
+                <h1 class="hero-title glitch" data-text="เทพเต๋า">เทพเต๋า</h1>
+            </div>
+            <div class="subtitle-container">
+                <p class="hero-subtitle">
+                    <span class="typing-text">Future-Driven Creator & Innovator</span>
+                    <span class="cursor"></span>
+                </p>
+            </div>
+            <div class="hero-buttons">
+                <button class="btn-primary" id="exploreBtn">
+                    <span>Explore My World</span>
+                    <div class="btn-glow"></div>
+                </button>
+                <button class="btn-secondary" id="contactBtn">
+                    <span>Get In Touch</span>
+                </button>
+            </div>
+
+            <!-- Floating Stats -->
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-value" data-target="100">0</div>
+                    <div class="stat-label">Projects</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" data-target="50">0</div>
+                    <div class="stat-label">Happy Clients</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" data-target="5">0</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3D Cube -->
+        <div class="cube-container">
+            <div class="cube">
+                <div class="cube-face front"></div>
+                <div class="cube-face back"></div>
+                <div class="cube-face right"></div>
+                <div class="cube-face left"></div>
+                <div class="cube-face top"></div>
+                <div class="cube-face bottom"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-text">About Me</span>
+                <div class="title-line"></div>
+            </h2>
+
+            <div class="about-grid">
+                <div class="about-card glass-card">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                            <path d="M2 17l10 5 10-5" />
+                            <path d="M2 12l10 5 10-5" />
+                        </svg>
+                    </div>
+                    <h3>Developer</h3>
+                    <p>Building cutting-edge websites and applications with the latest technologies</p>
+                </div>
+
+                <div class="about-card glass-card">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                            <circle cx="8.5" cy="8.5" r="1.5" />
+                            <polyline points="21 15 16 10 5 21" />
+                        </svg>
+                    </div>
+                    <h3>Designer</h3>
+                    <p>Crafting beautiful and intuitive UI/UX experiences that leave lasting impressions</p>
+                </div>
+
+                <div class="about-card glass-card">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="12 2 2 7 12 12 22 7 12 2" />
+                            <polyline points="2 17 12 22 22 17" />
+                            <polyline points="2 12 12 17 22 12" />
+                        </svg>
+                    </div>
+                    <h3>Innovator</h3>
+                    <p>Creating innovative solutions that solve real problems and deliver value</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-text">My Skills</span>
+                <div class="title-line"></div>
+            </h2>
+
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <div class="skill-name">HTML/CSS</div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-progress="95"></div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-name">JavaScript</div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-progress="90"></div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-name">React</div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-progress="85"></div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-name">Node.js</div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-progress="80"></div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-name">UI/UX Design</div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-progress="88"></div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-name">Python</div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-progress="75"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-text">Contact Me</span>
+                <div class="title-line"></div>
+            </h2>
+
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-card glass-card">
+                        <div class="contact-icon">📧</div>
+                        <h3>Email</h3>
+                        <p>gm@lnwtao.com</p>
+                    </div>
+
+                    <div class="contact-card glass-card">
+                        <div class="contact-icon">📱</div>
+                        <h3>โทรศัพท์</h3>
+                        <p>+66 XX XXX XXXX</p>
+                    </div>
+
+                    <div class="contact-card glass-card">
+                        <div class="contact-icon">📍</div>
+                        <h3>Location</h3>
+                        <p>Bangkok, Thailand</p>
+                    </div>
+                </div>
+
+                <form class="contact-form glass-card">
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">
+                        <span>Send Message</span>
+                        <div class="btn-glow"></div>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio-section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-text">My Portfolio</span>
+                <div class="title-line"></div>
+            </h2>
+
+            <div class="portfolio-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="web">Web</button>
+                <button class="filter-btn" data-filter="mobile">Mobile</button>
+                <button class="filter-btn" data-filter="design">Design</button>
+            </div>
+
+            <div class="portfolio-grid">
+                <div class="portfolio-card" data-category="web">
+                    <div class="portfolio-image">
+                        <div class="portfolio-overlay">
+                            <h3>E-Commerce Platform</h3>
+                            <p>Next.js • React • Node.js</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-card" data-category="mobile">
+                    <div class="portfolio-image">
+                        <div class="portfolio-overlay">
+                            <h3>Fitness Tracking App</h3>
+                            <p>React Native • Firebase</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-card" data-category="web">
+                    <div class="portfolio-image">
+                        <div class="portfolio-overlay">
+                            <h3>Dashboard Analytics</h3>
+                            <p>Vue.js • D3.js • Python</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-card" data-category="design">
+                    <div class="portfolio-image">
+                        <div class="portfolio-overlay">
+                            <h3>Brand Identity Design</h3>
+                            <p>Figma • Illustrator</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-card" data-category="mobile">
+                    <div class="portfolio-image">
+                        <div class="portfolio-overlay">
+                            <h3>Social Media App</h3>
+                            <p>Flutter • GraphQL</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-card" data-category="web">
+                    <div class="portfolio-image">
+                        <div class="portfolio-overlay">
+                            <h3>AI Chat Platform</h3>
+                            <p>React • OpenAI • WebSocket</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section id="timeline" class="timeline-section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-text">My Journey</span>
+                <div class="title-line"></div>
+            </h2>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass-card">
+                        <div class="timeline-date">2024 - Present</div>
+                        <h3>Senior Full-Stack Developer</h3>
+                        <p class="timeline-company">Tech Innovation Co.</p>
+                        <p>Leading development teams in creating cutting-edge web applications using modern technologies
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass-card">
+                        <div class="timeline-date">2022 - 2024</div>
+                        <h3>Full-Stack Developer</h3>
+                        <p class="timeline-company">Digital Solutions Ltd.</p>
+                        <p>Developed and maintained multiple client projects, specializing in React and Node.js</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass-card">
+                        <div class="timeline-date">2020 - 2022</div>
+                        <h3>Frontend Developer</h3>
+                        <p class="timeline-company">Creative Agency</p>
+                        <p>Built stunning user interfaces and interactive experiences for various brands</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass-card">
+                        <div class="timeline-date">2018 - 2020</div>
+                        <h3>Computer Science Degree</h3>
+                        <p class="timeline-company">University of Technology</p>
+                        <p>Specialized in Software Engineering and AI, graduated with honors</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 เทพเต๋า | Made with 💖 in the future</p>
+            <div class="social-links">
+                <a href="#" class="social-link">GitHub</a>
+                <a href="#" class="social-link">LinkedIn</a>
+                <a href="#" class="social-link">Twitter</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
