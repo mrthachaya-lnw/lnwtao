@@ -5,5 +5,10 @@
             "destination": "/building2u/",
             "permanent": true
         }
+        {
+            "source": "/lnwremove",
+            "destination": "/lnwremove/",
+            "permanent": true
+        }
     ]
 }
