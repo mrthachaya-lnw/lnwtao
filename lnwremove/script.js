@@ -22,6 +22,20 @@ class WatermarkRemover {
         this.stats = document.getElementById('stats');
         this.processedCountEl = document.getElementById('processedCount');
         this.successCountEl = document.getElementById('successCount');
+
+        // Validate all required elements exist
+        const requiredElements = [
+            'uploadArea', 'fileInput', 'selectBtn', 'processingArea',
+            'imagesGrid', 'clearBtn', 'downloadAllBtn', 'stats',
+            'processedCountEl', 'successCountEl'
+        ];
+
+        for (const elementName of requiredElements) {
+            if (!this[elementName]) {
+                console.error(`Required element '${elementName}' not found`);
+                throw new Error(`Missing required DOM element: ${elementName}`);
+            }
+        }
     }
 
     attachEventListeners() {
@@ -75,7 +89,7 @@ class WatermarkRemover {
 
     async processImage(file) {
         const imageId = `img-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
-        
+
         // Create image item
         const imageItem = this.createImageItem(imageId, file.name);
         this.imagesGrid.appendChild(imageItem);
@@ -83,17 +97,17 @@ class WatermarkRemover {
         try {
             // Load image
             const img = await this.loadImage(file);
-            
+
             // Update preview
             const preview = imageItem.querySelector('.image-preview');
             preview.src = img.src;
 
             // Remove watermark
             const processedCanvas = await this.removeWatermark(img);
-            
+
             // Update status
             this.updateImageStatus(imageItem, 'success', 'ลบลายน้ำสำเร็จ');
-            
+
             // Store processed data
             this.images.push({
                 id: imageId,
@@ -186,6 +200,11 @@ class WatermarkRemover {
         const canvas = document.createElement('canvas');
         const ctx = canvas.getContext('2d');
 
+        // Check if context is available
+        if (!ctx) {
+            throw new Error('Canvas context not available');
+        }
+
         // Set canvas size to match image
         canvas.width = img.width;
         canvas.height = img.height;
@@ -209,16 +228,16 @@ class WatermarkRemover {
         for (let y = startY; y < img.height; y++) {
             for (let x = startX; x < img.width; x++) {
                 const idx = (y * img.width + x) * 4;
-                
+
                 // Sample from the area above (mirror effect)
                 const sampleY = Math.max(0, startY - (y - startY) - 1);
                 const sampleIdx = (sampleY * img.width + x) * 4;
-                
+
                 // Copy pixel data with slight blur effect
                 if (sampleY >= 0) {
                     // Average with neighboring pixels for smoother result
                     let r = 0, g = 0, b = 0, count = 0;
-                    
+
                     for (let dy = -1; dy <= 1; dy++) {
                         for (let dx = -1; dx <= 1; dx++) {
                             const ny = sampleY + dy;
@@ -232,7 +251,7 @@ class WatermarkRemover {
                             }
                         }
                     }
-                    
+
                     if (count > 0) {
                         data[idx] = r / count;
                         data[idx + 1] = g / count;
@@ -255,7 +274,7 @@ class WatermarkRemover {
 
         const link = document.createElement('a');
         const fileName = image.name.replace(/\.[^/.]+$/, '') + '_no_watermark.png';
-        
+
         image.canvas.toBlob((blob) => {
             const url = URL.createObjectURL(blob);
             link.href = url;
@@ -277,7 +296,7 @@ class WatermarkRemover {
             const image = this.images[index];
             image.element.remove();
             this.images.splice(index, 1);
-            
+
             this.processedCount--;
             this.successCount--;
             this.updateStats();
