@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Airemove - ลบลายน้ำบนรูปด้วยการประมวลผลบนเครื่องของคุณ" />
+    <title>Airemove | ลบลายน้ำรูป (Client-side)</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="stylesheet" href="/airemove/style.css" />
+</head>
+
+<body>
+    <header class="header">
+        <div class="container header__inner">
+            <a class="brand" href="/airemove/">
+                <span class="brand__name">Airemove</span>
+                <span class="brand__tag">ลบลายน้ำรูปบนเครื่องคุณ</span>
+            </a>
+            <div class="header__pill">No upload • No server • Prompt font</div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <div class="hero__grid">
+                <div class="hero__content">
+                    <h1 class="hero__title">ลบลายน้ำบนรูปที่สร้างจาก Gemini</h1>
+                    <p class="hero__subtitle">ทำงานบนเครื่องของคุณ: อัปโหลดรูป เลือกขนาดแปรง ระบายทับลายน้ำ แล้วกดลบเพื่อเติมพื้นหลังอัตโนมัติ</p>
+
+                    <div class="actions">
+                        <label class="file">
+                            <input id="fileInput" type="file" accept="image/*" />
+                            <span class="file__btn">อัปโหลดรูป</span>
+                            <span class="file__hint" id="fileHint">รองรับ JPG/PNG/WebP</span>
+                        </label>
+
+                        <div class="controls">
+                            <div class="control">
+                                <div class="control__label">ขนาดแปรง</div>
+                                <input id="brushSize" class="range" type="range" min="6" max="60" value="22" />
+                            </div>
+                            <div class="control">
+                                <div class="control__label">ความนุ่ม (radius)</div>
+                                <input id="inpaintRadius" class="range" type="range" min="2" max="12" value="5" />
+                            </div>
+                        </div>
+
+                        <div class="buttons">
+                            <button id="btnRemove" class="btn btn--primary" type="button" disabled>ลบลายน้ำ</button>
+                            <button id="btnClear" class="btn" type="button" disabled>ล้างมาสก์</button>
+                            <button id="btnDownload" class="btn" type="button" disabled>ดาวน์โหลด</button>
+                        </div>
+
+                        <div class="status" id="status">กำลังโหลดตัวประมวลผล (OpenCV.js)…</div>
+                        <div class="note">
+                            ใช้กับภาพที่คุณมีสิทธิ์ใช้งานเท่านั้น ผลลัพธ์ขึ้นอยู่กับคุณภาพภาพ/ตำแหน่งลายน้ำ และการระบายมาสก์
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero__panel">
+                    <div class="panel">
+                        <div class="panel__head">
+                            <div class="panel__title">ตัวอย่าง / ระบายมาสก์</div>
+                            <div class="panel__meta" id="meta">ยังไม่ได้เลือกรูป</div>
+                        </div>
+
+                        <div class="stage" id="stage">
+                            <canvas id="imgCanvas" class="stage__canvas" width="960" height="640"></canvas>
+                            <canvas id="maskCanvas" class="stage__canvas stage__canvas--mask" width="960" height="640"></canvas>
+                            <div class="stage__empty" id="emptyState">
+                                <div class="stage__emptyTitle">ลากไฟล์รูปมาวาง หรือกดอัปโหลด</div>
+                                <div class="stage__emptySub">จากนั้นระบายทับลายน้ำด้วยแปรง</div>
+                            </div>
+                        </div>
+
+                        <div class="panel__foot">
+                            <div class="chips">
+                                <span class="chip">ลากเพื่อระบาย</span>
+                                <span class="chip">Shift เพื่อเส้นตรง</span>
+                                <span class="chip">Esc ยกเลิกการระบาย</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script async src="https://docs.opencv.org/4.x/opencv.js"></script>
+    <script src="/airemove/script.js"></script>
+</body>
+
+</html>

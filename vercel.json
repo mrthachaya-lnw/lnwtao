@@ -1,0 +1,14 @@
+{
+    "redirects": [
+        {
+            "source": "/building2u",
+            "destination": "/building2u/",
+            "permanent": true
+        },
+        {
+            "source": "/airemove",
+            "destination": "/airemove/",
+            "permanent": true
+        }
+    ]
+}
